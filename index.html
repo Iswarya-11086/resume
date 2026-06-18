@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Iswarya Resume Portfolio</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f2f6ff;
+}
+
+
+/* Header */
+
+header{
+    background:#003b82;
+    color:white;
+    padding:25px;
+    text-align:center;
+}
+
+
+nav button{
+
+    background:white;
+    color:#003b82;
+    border:none;
+    padding:12px 20px;
+    margin:8px;
+    cursor:pointer;
+    border-radius:5px;
+    font-size:15px;
+
+}
+
+
+nav button:hover{
+
+    background:#1e90ff;
+    color:white;
+
+}
+
+
+
+/* Main */
+
+.container{
+
+    width:80%;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0px 5px 15px gray;
+
+}
+
+
+.section{
+
+    display:none;
+
+}
+
+
+.active{
+
+    display:block;
+
+}
+
+
+h2{
+
+    color:#003b82;
+
+}
+
+
+li{
+
+    margin:8px;
+
+}
+
+
+.profile{
+
+    width:150px;
+    height:150px;
+    border-radius:50%;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<header>
+
+
+<h1>ISWARYA</h1>
+
+<p>
+Artificial Intelligence and Machine Learning Student
+</p>
+
+
+<img class="profile" src="profile.png">
+
+
+<nav>
+
+
+<button onclick="show('summary')">
+Summary
+</button>
+
+
+<button onclick="show('education')">
+Education
+</button>
+
+
+<button onclick="show('skills')">
+Skills
+</button>
+
+
+<button onclick="show('projects')">
+Projects
+</button>
+
+
+<button onclick="show('certificate')">
+Certification
+</button>
+
+
+<button onclick="show('contact')">
+Contact
+</button>
+
+
+</nav>
+
+
+</header>
+
+
+
+
+
+<div class="container">
+
+
+
+<!-- Summary -->
+
+<div id="summary" class="section active">
+
+
+<h2>Summary</h2>
+
+
+<p>
+
+A motivated and enthusiastic Computer Science student seeking an opportunity
+to apply my technical skills and knowledge in software development.
+Interested in learning new technologies and contributing to organizational growth.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<!-- Education -->
+
+<div id="education" class="section">
+
+
+<h2>Education</h2>
+
+
+<h3>B.Tech Artificial Intelligence and Machine Learning</h3>
+
+<p>
+Kongu Engineering College
+<br>
+CGPA : 8.17
+</p>
+
+
+<h3>Higher Secondary (12th)</h3>
+
+<p>
+GHSS Malayappalayam
+<br>
+Percentage : 89%
+</p>
+
+
+</div>
+
+
+
+
+
+
+<!-- Skills -->
+
+
+<div id="skills" class="section">
+
+
+<h2>Technical Skills</h2>
+
+
+<ul>
+
+<li>Python</li>
+<li>Java</li>
+<li>C Programming</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>MySQL</li>
+<li>Machine Learning</li>
+<li>Data Structures</li>
+
+</ul>
+
+
+
+<h2>Soft Skills</h2>
+
+
+<ul>
+
+<li>Teamwork</li>
+<li>Problem Solving</li>
+<li>Quick Learner</li>
+<li>Communication</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Projects -->
+
+
+<div id="projects" class="section">
+
+
+<h2>Projects</h2>
+
+
+
+
+<h3>
+1. Toxic Comment Detection Using Transformer Model
+</h3>
+
+
+<p>
+<b>Technology:</b>
+Python, Machine Learning, Transformers, Streamlit
+</p>
+
+
+<ul>
+
+<li>Developed a system to detect toxic and non-toxic comments.</li>
+
+<li>Used transformer models to understand text context.</li>
+
+<li>Performed preprocessing and model evaluation.</li>
+
+</ul>
+
+
+
+<hr>
+
+
+
+
+
+<h3>
+2. Library Fine Calculation System
+</h3>
+
+
+<p>
+
+<b>Technology:</b>
+Java, MySQL
+
+</p>
+
+
+<ul>
+
+<li>Developed library management system.</li>
+
+<li>Implemented book issue and return modules.</li>
+
+<li>Calculated fine automatically based on late return.</li>
+
+<li>Stored library records using database.</li>
+
+
+</ul>
+
+
+
+
+<hr>
+
+
+
+
+
+<h3>
+3. Heart Disease Prediction Using Machine Learning
+</h3>
+
+
+<p>
+
+<b>Technology:</b>
+Python, Machine Learning, Pandas, Scikit-learn
+
+</p>
+
+
+<ul>
+
+<li>Developed ML model to predict heart disease.</li>
+
+<li>Performed data preprocessing and feature selection.</li>
+
+<li>Used classification algorithms for prediction.</li>
+
+<li>Evaluated model accuracy and performance.</li>
+
+
+</ul>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Certification -->
+
+
+<div id="certificate" class="section">
+
+
+<h2>Certifications</h2>
+
+
+<ul>
+
+<li>Advanced C Programming</li>
+
+<li>Advanced Java Programming</li>
+
+<li>Machine Learning Certification</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Contact -->
+
+
+<div id="contact" class="section">
+
+
+<h2>Contact</h2>
+
+
+<p>
+Email:
+iswaryap.24aim@kongu.edu
+</p>
+
+
+<p>
+Phone:
+9842717755
+</p>
+
+
+<p>
+Location:
+Tiruppur
+</p>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<script>
+
+
+function show(id)
+{
+
+let sections=document.getElementsByClassName("section");
+
+
+for(let i=0;i<sections.length;i++)
+{
+
+sections[i].classList.remove("active");
+
+}
+
+
+document.getElementById(id).classList.add("active");
+
+
+}
+
+
+</script>
+
+
+
+
+
+</body>
+
+</html>
