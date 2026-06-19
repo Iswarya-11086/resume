@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Registration Form</title>
+</head>
+
+<body>
+
+<h1>College Registration Form</h1>
+
+First Name (String):
+<input type="text" id="fname"><br><br>
+
+Last Name (String):
+<input type="text" id="lname"><br><br>
+
+Father Name (String):
+<input type="text" id="ftname"><br><br>
+
+Mother Name (String):
+<input type="text" id="mname"><br><br>
+
+Email (String):
+<input type="text" id="email"><br><br>
+
+Mobile (Number):
+<input type="text" id="mobile"><br><br>
+
+10th Mark (Number):
+<input type="number" id="mark"><br><br>
+
+12th Mark (Number):
+<input type="number" id="hmark"><br><br>
+
+Course Chosen:
+
+<select id="course">
+<option>AIML</option>
+<option>CSE</option>
+<option>ECE</option>
+<option>EEE</option>
+<option>AIDS</option>
+</select>
+
+<br><br>
+
+Temporary Address:
+<input type="text" id="tadd"><br><br>
+
+Permanent Address:
+<input type="text" id="padd"><br><br>
+
+<button onclick="showData()">Submit</button>
+<h1>Output</h1>
+
+<p id="Output"></p>
+<script>
+function showData()
+{
+let Firstname = document.getElementById("fname").value;
+let Lastname = document.getElementById("lname").value;
+let Fathername = document.getElementById("ftname").value;
+let Mothername = document.getElementById("mname").value;
+let Email = document.getElementById("email").value;
+let Mobile = document.getElementById("mobile").value;
+let tenthMark = document.getElementById("mark").value;
+let twelfthMark = document.getElementById("hmark").value;
+let Course = document.getElementById("course").value;
+let Temporary = document.getElementById("tadd").value;
+let Permanent = document.getElementById("padd").value;
+
+document.getElementById("Output").innerHTML =
+"First Name : " + Firstname + "<br>" +
+"Last Name : " + Lastname + "<br>" +
+"Father Name : " + Fathername + "<br>" +
+"Mother Name : " + Mothername + "<br>" +
+"Email : " + Email + "<br>" +
+"Mobile : " + Mobile + "<br>" +
+"10th Mark : " + tenthMark + "<br>" +
+"12th Mark : " + twelfthMark + "<br>" +
+"Course Chosen : " + Course + "<br>" +
+"Temporary Address : " + Temporary + "<br>" +
+"Permanent Address : " + Permanent;
+
+}
+
+</script>
+</body>
+</html>
