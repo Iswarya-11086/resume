@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>College Registration CRUD</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#f4f6f9;
+padding:20px;
+}
+
+
+.container{
+display:flex;
+gap:20px;
+}
+
+
+/* FORM */
+
+.form-section{
+
+width:40%;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 10px #aaa;
+
+}
+
+
+h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+
+label{
+font-weight:bold;
+display:block;
+margin-top:10px;
+}
+
+
+input,select,textarea{
+
+width:100%;
+padding:8px;
+margin-top:5px;
+border:1px solid gray;
+border-radius:5px;
+
+}
+
+
+button{
+
+padding:10px;
+margin-top:15px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+
+}
+
+
+.btn{
+
+display:flex;
+gap:10px;
+}
+
+
+.add{
+background:green;
+color:white;
+flex:1;
+}
+
+
+.update{
+background:orange;
+color:white;
+flex:1;
+}
+
+
+
+/* TABLE */
+
+
+.table-section{
+
+width:60%;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 10px #aaa;
+
+overflow:auto;
+
+}
+
+
+table{
+
+width:100%;
+border-collapse:collapse;
+
+}
+
+
+th{
+
+background:green;
+color:white;
+padding:10px;
+
+}
+
+
+td{
+
+border:1px solid #ddd;
+padding:8px;
+text-align:center;
+
+}
+
+
+.edit{
+
+background:#007bff;
+color:white;
+
+}
+
+
+.delete{
+
+background:red;
+color:white;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- FORM -->
+
+
+<div class="form-section">
+
+
+<h2>College Registration</h2>
+
+
+<label>First Name</label>
+<input id="fname">
+
+
+<label>Last Name</label>
+<input id="lname">
+
+
+<label>Email</label>
+<input id="email">
+
+
+<label>Mobile</label>
+<input id="mobile">
+
+
+<label>Department</label>
+
+<select id="dept">
+
+<option>AIML</option>
+<option>CSE</option>
+<option>ECE</option>
+<option>EEE</option>
+<option>AIDS</option>
+
+</select>
+
+
+<label>10th Mark</label>
+<input type="number" id="mark10">
+
+
+<label>12th Mark</label>
+<input type="number" id="mark12">
+
+
+<label>Address</label>
+<textarea id="address"></textarea>
+
+
+
+<div class="btn">
+
+<button class="add" onclick="addStudent()">
+Register
+</button>
+
+
+<button class="update" onclick="updateStudent()">
+Update
+</button>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- TABLE -->
+
+
+<div class="table-section">
+
+
+<h2>Student Details</h2>
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Mobile</th>
+<th>Dept</th>
+<th>10th</th>
+<th>12th</th>
+<th>Address</th>
+<th>Action</th>
+
+
+</tr>
+
+</thead>
+
+
+<tbody id="data">
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<script>
+
+
+let id=1;
+let selected=null;
+
+
+
+
+// CREATE
+
+
+function addStudent(){
+
+
+let fname=document.getElementById("fname").value;
+let lname=document.getElementById("lname").value;
+let email=document.getElementById("email").value;
+let mobile=document.getElementById("mobile").value;
+let dept=document.getElementById("dept").value;
+let mark10=document.getElementById("mark10").value;
+let mark12=document.getElementById("mark12").value;
+let address=document.getElementById("address").value;
+
+
+
+if(fname=="" || email==""){
+
+alert("Fill required fields");
+return;
+
+}
+
+
+
+let row=`
+
+<tr>
+
+<td>${id++}</td>
+
+<td>${fname} ${lname}</td>
+
+<td>${email}</td>
+
+<td>${mobile}</td>
+
+<td>${dept}</td>
+
+<td>${mark10}</td>
+
+<td>${mark12}</td>
+
+<td>${address}</td>
+
+
+<td>
+
+<button class="edit"
+onclick="editStudent(this)">
+Edit
+</button>
+
+
+<button class="delete"
+onclick="deleteStudent(this)">
+Delete
+</button>
+
+
+</td>
+
+
+</tr>
+
+`;
+
+
+document.getElementById("data").innerHTML += row;
+
+
+clear();
+
+}
+
+
+
+
+
+// EDIT
+
+
+function editStudent(btn){
+
+
+selected=btn.parentElement.parentElement;
+
+
+let name=selected.cells[1].innerHTML.split(" ");
+
+
+document.getElementById("fname").value=name[0];
+
+document.getElementById("lname").value=name[1];
+
+document.getElementById("email").value=selected.cells[2].innerHTML;
+
+document.getElementById("mobile").value=selected.cells[3].innerHTML;
+
+document.getElementById("dept").value=selected.cells[4].innerHTML;
+
+document.getElementById("mark10").value=selected.cells[5].innerHTML;
+
+document.getElementById("mark12").value=selected.cells[6].innerHTML;
+
+document.getElementById("address").value=selected.cells[7].innerHTML;
+
+
+}
+
+
+
+
+
+// UPDATE
+
+
+function updateStudent(){
+
+
+if(selected==null){
+
+alert("Select Edit first");
+return;
+
+}
+
+
+selected.cells[1].innerHTML =
+fname.value+" "+lname.value;
+
+
+selected.cells[2].innerHTML=email.value;
+
+selected.cells[3].innerHTML=mobile.value;
+
+selected.cells[4].innerHTML=dept.value;
+
+selected.cells[5].innerHTML=mark10.value;
+
+selected.cells[6].innerHTML=mark12.value;
+
+selected.cells[7].innerHTML=address.value;
+
+
+alert("Updated");
+
+
+clear();
+
+selected=null;
+
+
+}
+
+
+
+
+
+// DELETE
+
+
+function deleteStudent(btn){
+
+btn.parentElement.parentElement.remove();
+
+}
+
+
+
+
+
+function clear(){
+
+
+fname.value="";
+lname.value="";
+email.value="";
+mobile.value="";
+mark10.value="";
+mark12.value="";
+address.value="";
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
