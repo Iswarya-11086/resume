@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>All Operator Calculator</title>
+
+<style>
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#ddd;
+    font-family:Arial;
+}
+
+.calculator{
+    width:280px;
+    background:#f5f0e8;
+    padding:10px;
+    border:2px solid black;
+    border-radius:10px;
+}
+
+#display{
+    width:100%;
+    height:55px;
+    font-size:28px;
+    text-align:right;
+    margin-bottom:8px;
+}
+
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:5px;
+}
+
+button{
+    height:45px;
+    font-size:18px;
+    border:1px solid gray;
+    border-radius:5px;
+    background:white;
+}
+
+.operator{
+    background:#eee;
+}
+
+.equal{
+    background:#0878c9;
+    color:white;
+}
+
+.clear{
+    background:red;
+    color:white;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="calculator">
+
+<input type="text" id="display" value="0" disabled>
+
+
+<div class="buttons">
+
+
+<button class="clear" onclick="clearBox()">C</button>
+<button onclick="percentage()">%</button>
+<button onclick="sqrt()">√</button>
+<button onclick="back()">⌫</button>
+
+
+<button onclick="inverse()">1/x</button>
+<button onclick="square()">x²</button>
+<button onclick="sign()">+/−</button>
+<button class="operator" onclick="show('/')">÷</button>
+
+
+<button onclick="show('7')">7</button>
+<button onclick="show('8')">8</button>
+<button onclick="show('9')">9</button>
+<button class="operator" onclick="show('*')">×</button>
+
+
+<button onclick="show('4')">4</button>
+<button onclick="show('5')">5</button>
+<button onclick="show('6')">6</button>
+<button class="operator" onclick="show('-')">−</button>
+
+
+<button onclick="show('1')">1</button>
+<button onclick="show('2')">2</button>
+<button onclick="show('3')">3</button>
+<button class="operator" onclick="show('+')">+</button>
+
+
+<button onclick="show('0')">0</button>
+<button onclick="show('.')">.</button>
+<button class="equal" onclick="calculate()">=</button>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+function show(value)
+{
+    let d=document.getElementById("display");
+
+    if(d.value=="0")
+        d.value=value;
+    else
+        d.value+=value;
+}
+
+
+function clearBox()
+{
+    document.getElementById("display").value="0";
+}
+
+
+function back()
+{
+    let d=document.getElementById("display");
+    d.value=d.value.slice(0,-1);
+
+    if(d.value=="")
+        d.value="0";
+}
+
+
+function calculate()
+{
+    let d=document.getElementById("display");
+
+    try{
+        d.value=eval(d.value);
+    }
+    catch{
+        d.value="Error";
+    }
+}
+
+
+function sqrt()
+{
+    let d=document.getElementById("display");
+    d.value=Math.sqrt(d.value);
+}
+
+
+function square()
+{
+    let d=document.getElementById("display");
+    d.value=d.value*d.value;
+}
+
+
+function inverse()
+{
+    let d=document.getElementById("display");
+    d.value=1/d.value;
+}
+
+
+function sign()
+{
+    let d=document.getElementById("display");
+    d.value=-d.value;
+}
+
+
+function percentage()
+{
+    let d=document.getElementById("display");
+    d.value=d.value/100;
+}
+
+</script>
+
+
+</body>
+</html>
